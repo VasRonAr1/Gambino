@@ -7,7 +7,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
 # Разрешенные пользователи (по именам)
-ALLOWED_USERNAMES = {'username1', 'username2'}  # Замените на имена пользователей
+ALLOWED_USERNAMES = {'SpammBotss'}  # Замените на имена пользователей
 # Список зарегистрированных чатов
 registered_chats = []
 
