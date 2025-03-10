@@ -9,39 +9,7 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Cont
 # Разрешенные пользователи (по именам)
 ALLOWED_USERNAMES = {'SpammBotss'}  # Замените на имена пользователей
 # Список зарегистрированных чатов
-registered_chats = []
-
-# Логирование
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-# Файл для сохранения списка чатов
-CHATS_FILE = 'registered_chats.json'
-
-
-# Функция для сохранения чатов в файл (формат JSON)
-def save_registered_chats():
-    with open(CHATS_FILE, 'w') as f:
-        json.dump(registered_chats, f, indent=4)
-
-
-# Функция для загрузки списка чатов из файла (формат JSON)
-def load_registered_chats():
-    global registered_chats
-    if os.path.exists(CHATS_FILE):
-        with open(CHATS_FILE, 'r') as f:
-            registered_chats = json.load(f)
-
-
-# Команда /start
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if update.effective_chat.type != 'private':
-        return
-
-    user_id = update.effective_user.id
-    username = update.effective_user.username  # @username без @
-    logging.info(f"Получена команда /start от пользователя ID: {user_id}, username: @{username}")
+registered_chats user_id}, username: @{username}")
 
     # Проверяем, есть ли @username пользователя в списке разрешённых
     if username not in ALLOWED_USERNAMES:
